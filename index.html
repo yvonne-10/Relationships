@@ -11,7 +11,7 @@
     *{box-sizing:border-box}
     body{margin:0;background:radial-gradient(1200px 600px at 20% -10%, #162033 0%, #0d1320 45%, var(--bg) 100%);color:var(--text);font:15px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
     header{position:sticky;top:0;z-index:5;background:linear-gradient(#0d1320, rgba(13,19,32,.7));backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .wrap{max-width:1100px;margin:0 auto;padding:14px 18px}
+    .wrap{max-width:1200px;margin:0 auto;padding:14px 18px}
     .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
     h1{font-size:18px;margin:0 12px 0 0;letter-spacing:.2px}
     button, select, label{color:var(--text)}
@@ -23,32 +23,37 @@
     select{appearance:none;padding-right:32px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="white"><path d="M5 7l5 6 5-6z"/></svg>');background-repeat:no-repeat;background-position:right 8px center}
 
     /* Cards */
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;padding:18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;padding:18px}
     .card{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
     .title{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
     .title h3{margin:0;font-size:17px}
     .badge{font-size:11px;padding:4px 8px;border-radius:999px;background:rgba(122,183,255,.1);border:1px solid rgba(122,183,255,.35);color:#cfe3ff}
+    .avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.15)}
+    .title-left{display:flex;align-items:center;gap:10px}
+
+    .tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+    .tag{font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.14);color:#bfe2ff;background:rgba(122,183,255,.08)}
 
     .meta{display:grid;gap:6px;margin:6px 0 10px}
     .meta div{display:flex;gap:8px;align-items:center}
-    .meta label{width:120px;color:var(--muted)}
+    .meta label{width:150px;color:var(--muted)}
     .impression{color:#d7e2eb;background:#0d1420;border:1px solid rgba(255,255,255,.06);padding:10px;border-radius:12px;min-height:44px}
     .row-actions{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
     .value-ico{display:flex;align-items:center;gap:6px}
 
-    /* Chips for activities */
+    /* Chips for activities & tag choices */
     .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
     .chip{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(122,183,255,.08);color:#cfe3ff;cursor:pointer;user-select:none}
     .chip.on{background:rgba(94,224,160,.18);border-color:rgba(94,224,160,.5);color:#d6ffe9}
 
     /* Dialog */
-    dialog{border:0;border-radius:18px;max-width:700px;width:96%;padding:0;background:#0f1423;color:var(--text);box-shadow:0 28px 120px rgba(0,0,0,.55)}
+    dialog{border:0;border-radius:18px;max-width:780px;width:96%;padding:0;background:#0f1423;color:var(--text);box-shadow:0 28px 120px rgba(0,0,0,.55)}
     dialog::backdrop{background:rgba(0,0,0,.5)}
     .dlg-head{padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center}
     .dlg-body{padding:18px}
     form.grid{grid-template-columns:1fr 1fr}
     .full{grid-column:1/-1}
-    input, textarea{width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0a1020;color:var(--text)}
+    input, textarea{width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0a1020;color:#var(--text)}
     input:focus, textarea:focus, select:focus{outline:none;box-shadow:var(--ring)}
     .hint{color:var(--muted);font-size:12px}
 
@@ -59,6 +64,7 @@
     .tabs{display:flex;gap:8px;margin-right:6px}
     .tabs button{border-radius:999px;padding:8px 12px}
     #page-calendar{display:none}
+    #page-list{display:none}
 
     /* Calendar */
     .cal-wrap{padding:18px}
@@ -75,7 +81,17 @@
     .ev.bd{background:rgba(255,223,128,.08);color:#ffe29a;border-color:rgba(255,223,128,.3)}
     .ev.mt{background:rgba(126,231,170,.08);color:#9af3c5;border-color:rgba(126,231,170,.28)}
 
-    @media (max-width:600px){form.grid{grid-template-columns:1fr}}
+    /* List view */
+    .list-wrap{padding:18px}
+    .list-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+    table.list{width:100%;border-collapse:collapse}
+    .list th,.list td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
+    .list th{color:#b8c6d9;font-weight:600}
+    .bar{height:8px;background:rgba(122,183,255,.15);border:1px solid rgba(122,183,255,.35);border-radius:999px;overflow:hidden}
+    .bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent-2),var(--accent));}
+
+    .avatar-up{display:flex;align-items:center;gap:10px}
+    .avatar-up img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.2)}
   </style>
 </head>
 <body>
@@ -85,10 +101,14 @@
       <div class="tabs">
         <button id="tabCards" class="primary">Cards</button>
         <button id="tabCalendar" class="ghost">Calendar</button>
+        <button id="tabList" class="ghost">List</button>
       </div>
       <button id="addBtn" class="primary">＋ Add Friend</button>
 
       <div style="flex:1"></div>
+
+      <label id="filterTagLabel" for="filterTag">Filter tag</label>
+      <select id="filterTag"><option value="__all">All</option></select>
 
       <label id="sortLabel" for="sort">Sort by</label>
       <select id="sort">
@@ -97,6 +117,7 @@
         <option value="not-met">Longest not meeting</option>
         <option value="known">Longest known</option>
         <option value="name">Name A → Z</option>
+        <option value="tag">Tag A → Z</option>
       </select>
       <button id="applySort" class="ghost">Apply</button>
 
@@ -137,12 +158,32 @@
     </div>
   </main>
 
+  <!-- Page: List -->
+  <main id="page-list">
+    <div class="list-wrap wrap">
+      <div class="list-controls">
+        <label id="searchLabel" for="listSearch">Search</label>
+        <input id="listSearch" placeholder="Type a name…" />
+      </div>
+      <table class="list" id="listTable">
+        <thead>
+          <tr><th id="thName">Name</th><th id="thAge">Age</th><th style="width:60%" id="thKnown">Known (years)</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+
   <template id="cardTpl">
     <article class="card">
       <div class="title">
-        <h3 class="nm"></h3>
+        <div class="title-left">
+          <img class="avatar" alt="" />
+          <h3 class="nm"></h3>
+        </div>
         <span class="badge bdayBadge"></span>
       </div>
+      <div class="tags"></div>
       <div class="meta">
         <div><label>🎂 <span data-k="birthday">Birthday</span></label><span class="bday value-ico"></span></div>
         <div><label>🎉 <span data-k="next_birthday">Next birthday</span></label><span class="nextBday value-ico"></span></div>
@@ -188,6 +229,20 @@
           <label class="full"><span data-k="career">Career</span>
             <input name="career" placeholder="e.g., Designer" />
           </label>
+
+          <label class="full"><span data-k="where_tags">Where/How we met (tags)</span></label>
+          <div id="tagChips" class="chips full"></div>
+          <div class="full row" style="gap:8px;align-items:center">
+            <input id="tagInput" placeholder="e.g., School, Gym, Travel" />
+            <button id="addTagChoice" type="button" class="ghost">＋ <span data-k="add_to_choices">Add to choices</span></button>
+          </div>
+
+          <label class="full"><span data-k="photo">Photo</span></label>
+          <div class="avatar-up full">
+            <img id="avatarPreview" alt="" />
+            <input id="photoInput" type="file" accept="image/*" />
+          </div>
+
           <label class="full"><span data-k="impression">Impression</span>
             <textarea name="impression" rows="3" placeholder="Your notes…"></textarea>
           </label>
@@ -237,6 +292,7 @@
 
     const storeKey = 'relationship_cards_v1';
     const typeKey = 'relationship_cards_meet_types_v1';
+    const tagKey  = 'relationship_cards_tag_choices_v1';
     const langKey = 'relationship_cards_lang';
 
     const locales = { en:'en', zh:'zh-CN', no:'nb-NO', ko:'ko' };
@@ -244,40 +300,40 @@
     // ---- i18n ----
     const i18n = {
       en:{
-        app_title:'Relationship Cards', cards:'Cards', calendar:'Calendar', add_friend:'＋ Add Friend',
-        sort_by:'Sort by', apply:'Apply', language:'Language',
-        recently_added:'Recently added', upcoming_birthdays:'Upcoming birthdays', longest_not_meeting:'Longest not meeting', longest_known:'Longest known', name_az:'Name A → Z',
-        birthday:'Birthday', next_birthday:'Next birthday', age:'Age', star_sign:'Star sign', zodiac:'Chinese zodiac', career:'Career', met_on:'Met on', met_on_first:'Met on (first met)', known:'Known', last_met:'Last met', last_met_opt:'Last met (optional)', not_met_for:'Not met for', impression:'Impression',
+        app_title:'Relationship Cards', cards:'Cards', calendar:'Calendar', list:'List', add_friend:'＋ Add Friend',
+        sort_by:'Sort by', apply:'Apply', language:'Language', filter_tag:'Filter tag', all_tags:'All', search:'Search',
+        recently_added:'Recently added', upcoming_birthdays:'Upcoming birthdays', longest_not_meeting:'Longest not meeting', longest_known:'Longest known', name_az:'Name A → Z', tag_az:'Tag A → Z',
+        birthday:'Birthday', next_birthday:'Next birthday', age:'Age', star_sign:'Star sign', zodiac:'Chinese zodiac', career:'Career', met_on:'Met on', met_on_first:'Met on (first met)', known:'Known', last_met:'Last met', last_met_opt:'Last met (optional)', not_met_for:'Not met for', impression:'Impression', where_tags:'Where/How we met (tags)', photo:'Photo',
         reset:'Reset', save:'Save', edit:'Edit', delete:'Delete', meeting:'Meeting', date:'Date', activities:'Activities', add_to_choices:'Add to choices', note:'Note',
         empty_prefix:'No friends yet. Click', empty_suffix:'to create your first card.',
         month:'Month', birthdays:'Birthdays', meetings:'Meetings',
         days_short:['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
       },
       zh:{
-        app_title:'关系卡片', cards:'卡片', calendar:'日历', add_friend:'＋ 添加好友',
-        sort_by:'排序', apply:'应用', language:'语言',
-        recently_added:'最近添加', upcoming_birthdays:'即将过生日', longest_not_meeting:'最久未见', longest_known:'认识最久', name_az:'姓名 A → Z',
-        birthday:'生日', next_birthday:'下次生日', age:'年龄', star_sign:'星座', zodiac:'生肖', career:'职业', met_on:'初次相识', met_on_first:'初次相识', known:'认识时间', last_met:'上次见面', last_met_opt:'上次见面（可选）', not_met_for:'未见天数', impression:'印象',
+        app_title:'关系卡片', cards:'卡片', calendar:'日历', list:'列表', add_friend:'＋ 添加好友',
+        sort_by:'排序', apply:'应用', language:'语言', filter_tag:'标签筛选', all_tags:'全部', search:'搜索',
+        recently_added:'最近添加', upcoming_birthdays:'即将过生日', longest_not_meeting:'最久未见', longest_known:'认识最久', name_az:'姓名 A → Z', tag_az:'标签 A → Z',
+        birthday:'生日', next_birthday:'下次生日', age:'年龄', star_sign:'星座', zodiac:'生肖', career:'职业', met_on:'初次相识', met_on_first:'初次相识', known:'认识时间', last_met:'上次见面', last_met_opt:'上次见面（可选）', not_met_for:'未见天数', impression:'印象', where_tags:'我们怎么/在哪认识（标签）', photo:'照片',
         reset:'重置', save:'保存', edit:'编辑', delete:'删除', meeting:'见面', date:'日期', activities:'活动', add_to_choices:'加入到选项', note:'备注',
         empty_prefix:'暂无好友，点击', empty_suffix:'创建你的第一张卡片。',
         month:'月份', birthdays:'生日', meetings:'见面',
         days_short:['日','一','二','三','四','五','六']
       },
       no:{
-        app_title:'Vennekort', cards:'Kort', calendar:'Kalender', add_friend:'＋ Legg til venn',
-        sort_by:'Sorter etter', apply:'Bruk', language:'Språk',
-        recently_added:'Nylig lagt til', upcoming_birthdays:'Kommende bursdager', longest_not_meeting:'Lengst siden vi møttes', longest_known:'Lengst kjent', name_az:'Navn A → Å',
-        birthday:'Bursdag', next_birthday:'Neste bursdag', age:'Alder', star_sign:'Stjernetegn', zodiac:'Kinesisk dyrekrets', career:'Yrke', met_on:'Møttes', met_on_first:'Møttes (første gang)', known:'Kjent i', last_met:'Sist møtt', last_met_opt:'Sist møtt (valgfritt)', not_met_for:'Ikke møtt på', impression:'Inntrykk',
+        app_title:'Vennekort', cards:'Kort', calendar:'Kalender', list:'Liste', add_friend:'＋ Legg til venn',
+        sort_by:'Sorter etter', apply:'Bruk', language:'Språk', filter_tag:'Filter tagg', all_tags:'Alle', search:'Søk',
+        recently_added:'Nylig lagt til', upcoming_birthdays:'Kommende bursdager', longest_not_meeting:'Lengst siden vi møttes', longest_known:'Lengst kjent', name_az:'Navn A → Å', tag_az:'Tagg A → Å',
+        birthday:'Bursdag', next_birthday:'Neste bursdag', age:'Alder', star_sign:'Stjernetegn', zodiac:'Kinesisk dyrekrets', career:'Yrke', met_on:'Møttes', met_on_first:'Møttes (første gang)', known:'Kjent i', last_met:'Sist møtt', last_met_opt:'Sist møtt (valgfritt)', not_met_for:'Ikke møtt på', impression:'Inntrykk', where_tags:'Hvor/Hvordan vi kjenner hverandre (tagger)', photo:'Bilde',
         reset:'Nullstill', save:'Lagre', edit:'Rediger', delete:'Slett', meeting:'Møte', date:'Dato', activities:'Aktiviteter', add_to_choices:'Legg til i valg', note:'Notat',
         empty_prefix:'Ingen venner ennå. Klikk', empty_suffix:'for å lage det første kortet.',
         month:'Måned', birthdays:'Bursdager', meetings:'Møter',
         days_short:['Søn','Man','Tir','Ons','Tor','Fre','Lør']
       },
       ko:{
-        app_title:'친구 카드', cards:'카드', calendar:'달력', add_friend:'＋ 친구 추가',
-        sort_by:'정렬 기준', apply:'적용', language:'언어',
-        recently_added:'최근 추가', upcoming_birthdays:'다가오는 생일', longest_not_meeting:'가장 오래 안 만남', longest_known:'가장 오래 앎', name_az:'이름 A → Z',
-        birthday:'생일', next_birthday:'다음 생일', age:'나이', star_sign:'별자리', zodiac:'띠', career:'직업', met_on:'첫 만남', met_on_first:'첫 만남', known:'알게 된 지', last_met:'마지막 만남', last_met_opt:'마지막 만남(선택)', not_met_for:'안 만난 기간', impression:'인상',
+        app_title:'친구 카드', cards:'카드', calendar:'달력', list:'목록', add_friend:'＋ 친구 추가',
+        sort_by:'정렬 기준', apply:'적용', language:'언어', filter_tag:'태그 필터', all_tags:'전체', search:'검색',
+        recently_added:'최근 추가', upcoming_birthdays:'다가오는 생일', longest_not_meeting:'가장 오래 안 만남', longest_known:'가장 오래 앎', name_az:'이름 A → Z', tag_az:'태그 A → Z',
+        birthday:'생일', next_birthday:'다음 생일', age:'나이', star_sign:'별자리', zodiac:'띠', career:'직업', met_on:'첫 만남', met_on_first:'첫 만남', known:'알게 된 지', last_met:'마지막 만남', last_met_opt:'마지막 만남(선택)', not_met_for:'안 만난 기간', impression:'인상', where_tags:'어디서/어떻게 알게 됐는지(태그)', photo:'사진',
         reset:'초기화', save:'저장', edit:'편집', delete:'삭제', meeting:'만남', date:'날짜', activities:'활동', add_to_choices:'선택지에 추가', note:'메모',
         empty_prefix:'아직 친구가 없습니다. 클릭', empty_suffix:'을 눌러 첫 카드를 만들어 보세요.',
         month:'월', birthdays:'생일', meetings:'만남',
@@ -296,22 +352,29 @@
     function yymmLocal(date){ const y=date.getFullYear(); const m=String(date.getMonth()+1).padStart(2,'0'); return `${y}-${m}` }
     function daysBetween(a,b){ const ms=24*3600*1000; return Math.floor((b-a)/ms) }
 
+    // --- tag helpers ---
+    const parseTags = (s='') => Array.from(new Set(String(s).split(/[,; ]+/).map(t=>t.trim()).filter(Boolean)));
+    function loadTagChoices(){ try{ const t = JSON.parse(localStorage.getItem(tagKey)); if(Array.isArray(t)) return t; }catch{} return ['School','Gym','Travel']; }
+    function saveTagChoices(arr){ localStorage.setItem(tagKey, JSON.stringify(Array.from(new Set(arr.map(s=>String(s).trim()).filter(Boolean))))) }
+
     // --- text helpers ---
     function renderStaticUI(){
       const d=i18n[curLang];
       document.title=d.app_title; $('#title').textContent=d.app_title;
-      $('#tabCards').textContent=d.cards; $('#tabCalendar').textContent=d.calendar; $('#addBtn').textContent=d.add_friend;
-      $('#sortLabel').textContent=d.sort_by; $('#applySort').textContent=d.apply; $('#langLabel').textContent=d.language;
-      const map={ 'added':'recently_added','upcoming-birthday':'upcoming_birthdays','not-met':'longest_not_meeting','known':'longest_known','name':'name_az' };
+      $('#tabCards').textContent=d.cards; $('#tabCalendar').textContent=d.calendar; $('#tabList').textContent=d.list; $('#addBtn').textContent=d.add_friend;
+      $('#sortLabel').textContent=d.sort_by; $('#applySort').textContent=d.apply; $('#langLabel').textContent=d.language; $('#filterTagLabel').textContent=d.filter_tag;
+      const map={ 'added':'recently_added','upcoming-birthday':'upcoming_birthdays','not-met':'longest_not_meeting','known':'longest_known','name':'name_az','tag':'tag_az' };
       [...$('#sort').options].forEach(opt=>{ opt.textContent=d[map[opt.value]] });
       $('#emptyText').innerHTML = `${d.empty_prefix} <span class="pill">${d.add_friend}</span> ${d.empty_suffix}`;
       $('#monthLabel').childNodes[0].nodeValue = d.month+' ';
       $('#bdToggleText').textContent=d.birthdays; $('#mtToggleText').textContent=d.meetings;
+      $('#searchLabel').textContent=d.search; $('#listSearch').placeholder=d.search+'…';
       // weekday header
       const head=$('#calHead'); head.innerHTML=''; (d.days_short||i18n.en.days_short).forEach(w=>{ const el=document.createElement('div'); el.textContent=w; head.appendChild(el) });
       $('#lang').value=curLang;
+      refreshTagFilter();
     }
-    function setLang(lang){ if(!i18n[lang]) return; curLang=lang; localStorage.setItem(langKey,lang); document.documentElement.lang=lang; renderStaticUI(); render(); if(getComputedStyle($('#page-calendar')).display!=='none') buildCalendarUI(); }
+    function setLang(lang){ if(!i18n[lang]) return; curLang=lang; localStorage.setItem(langKey,lang); document.documentElement.lang=lang; renderStaticUI(); render(); if(getComputedStyle($('#page-calendar')).display!=='none') buildCalendarUI(); if(getComputedStyle($('#page-list')).display!=='none') buildListUI(); }
 
     // ---- Age & signs ----
     function ageFromBirthday(bday){ const b=parseYMD(bday); if(!b) return null; const t=now(); let age=t.getFullYear()-b.getFullYear(); const m=t.getMonth()-b.getMonth(); if(m<0 || (m===0 && t.getDate()<b.getDate())) age--; return age }
@@ -332,16 +395,25 @@
     function loadTypes(){ try{ const t = JSON.parse(localStorage.getItem(typeKey)); if(Array.isArray(t) && t.length) return t; }catch{} return ['Dinner','Sports'] }
     function saveTypes(arr){ localStorage.setItem(typeKey, JSON.stringify(Array.from(new Set(arr.map(s=>String(s).trim()).filter(Boolean))))) }
 
+    // ---- Filter: Tag select (header) ----
+    function refreshTagFilter(){ const sel=$('#filterTag'); const current=sel.value; const allTags=new Set(); (load()||[]).forEach(f=> (f.tags||[]).forEach(t=>allTags.add(t))); loadTagChoices().forEach(t=>allTags.add(t)); sel.innerHTML=''; const optAll=document.createElement('option'); optAll.value='__all'; optAll.textContent=i18n[curLang].all_tags; sel.appendChild(optAll); [...allTags].sort((a,b)=>a.localeCompare(b)).forEach(tag=>{ const o=document.createElement('option'); o.value=tag; o.textContent=tag; sel.appendChild(o); }); sel.value = [...$$('#filterTag option')].some(o=>o.value===current) ? current : '__all'; }
+
     // ---- Render cards ----
     function render(){
-      const list = (load()||[]).map(it=>({ ...it, id: it.id || ((crypto&&crypto.randomUUID)? crypto.randomUUID(): (Date.now().toString(36)+Math.random().toString(36).slice(2))), meetings: Array.isArray(it.meetings)? it.meetings: [] }));
+      const list = (load()||[]).map(it=>({ ...it, id: it.id || ((crypto&&crypto.randomUUID)? crypto.randomUUID(): (Date.now().toString(36)+Math.random().toString(36).slice(2))), meetings: Array.isArray(it.meetings)? it.meetings: [], tags: Array.isArray(it.tags)? it.tags: parseTags(it.tags||'') }));
       save(list);
       const container = $('#cards'); container.innerHTML=''; $('#empty').hidden = list.length>0;
 
+      // filter by tag
+      const tagFilter = $('#filterTag').value;
+      let filtered = [...list];
+      if(tagFilter && tagFilter !== '__all'){ filtered = filtered.filter(f => (f.tags||[]).includes(tagFilter)); }
+
       const sortVal = $('#sort').value;
-      const sorted = [...list].sort((a,b)=>{
+      const sorted = [...filtered].sort((a,b)=>{
         if(sortVal==='added') return (b.createdAt||0)-(a.createdAt||0);
         if(sortVal==='name') return (a.name||'').localeCompare(b.name||'');
+        if(sortVal==='tag'){ const at=(a.tags&&a.tags[0])||''; const bt=(b.tags&&b.tags[0])||''; return at.localeCompare(bt); }
         if(sortVal==='known') return (daysBetween(parseYMD(b.metDate), now()) - daysBetween(parseYMD(a.metDate), now())); // longest known first
         if(sortVal==='upcoming-birthday'){ const ad=nextBirthdayInfo(a.birthday).inDays??99999; const bd=nextBirthdayInfo(b.birthday).inDays??99999; return ad-bd; }
         if(sortVal==='not-met'){ const as=lastInteractionDate(a)? daysBetween(lastInteractionDate(a),now()):-1; const bs=lastInteractionDate(b)? daysBetween(lastInteractionDate(b),now()):-1; return bs-as; }
@@ -351,6 +423,11 @@
       for(const item of sorted){
         const tpl = $('#cardTpl').content.cloneNode(true);
         $('.nm',tpl).textContent = item.name || '(Unnamed)';
+
+        const img=$('.avatar',tpl); if(item.avatar){ img.src=item.avatar; img.alt=item.name; } else { img.src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><rect width="80" height="80" fill="%2310162a"/><circle cx="40" cy="30" r="16" fill="%23314c7a"/><rect x="14" y="50" width="52" height="20" rx="10" fill="%23314c7a"/></svg>'; }
+
+        // tags row
+        const tw=$('.tags',tpl); (item.tags||[]).forEach(tag=>{ const s=document.createElement('span'); s.className='tag'; s.textContent=tag; tw.appendChild(s); });
 
         const nb=nextBirthdayInfo(item.birthday); const badge=$('.bdayBadge',tpl);
         if(nb.inDays===0) badge.textContent='🎂 Today!'; else if(nb.inDays===1) badge.textContent='🎉 Tomorrow'; else if(nb.inDays!=null) badge.textContent=`🎈 in ${nb.inDays} days`; else badge.textContent='🎂';
@@ -379,7 +456,7 @@
         $('[data-act="delete"] span',tpl).textContent = i18n[curLang].delete;
 
         const el=tpl.firstElementChild;
-        $('[data-act="delete"]',el).addEventListener('click',()=>{ if(confirm(`${i18n[curLang].delete} ${item.name}?`)){ const updated=load().filter(x=>x.id!==item.id); save(updated); render(); buildCalendarUI(); }});
+        $('[data-act="delete"]',el).addEventListener('click',()=>{ if(confirm(`${i18n[curLang].delete} ${item.name}?`)){ const updated=load().filter(x=>x.id!==item.id); save(updated); render(); buildCalendarUI(); buildListUI(); }});
         $('[data-act="edit"]',el).addEventListener('click',()=> openDialog(item));
         $('[data-act="addMeeting"]',el).addEventListener('click',()=> openMeetingDialog(item));
 
@@ -387,6 +464,7 @@
       }
 
       if(getComputedStyle($('#page-calendar')).display!=='none') buildCalendarUI();
+      if(getComputedStyle($('#page-list')).display!=='none') buildListUI();
     }
 
     function openDialog(existing){
@@ -395,9 +473,24 @@
       // localize form
       $$('#dlg [data-k]').forEach(el=>{ const k=el.getAttribute('data-k'); el.textContent = i18n[curLang][k]||el.textContent; });
       $('#hintNotMet').innerHTML = `Tip: “${i18n[curLang].longest_not_meeting}” uses the most recent of <em>${i18n[curLang].last_met}</em> or a logged <em>${i18n[curLang].meeting}</em>.`;
+      // populate values
       for(const [k,v] of Object.entries(existing||{})){ if(f.elements[k]) f.elements[k].value=v }
+      // tags preselect
+      selectedTagsSet = new Set(existing?.tags||[]); renderTagChips();
+      // avatar preview
+      $('#avatarPreview').src = existing?.avatar || '';
+      $('#photoInput').value = '';
       dlg.showModal();
     }
+
+    // Read file as data URL
+    function readAsDataURL(file){ return new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.onerror=rej; r.readAsDataURL(file); }); }
+
+    // Tag choices chips
+    let selectedTagsSet = new Set();
+    function renderTagChips(){ const wrap=$('#tagChips'); wrap.innerHTML=''; const choices=loadTagChoices(); choices.forEach(tag=>{ const b=document.createElement('span'); b.className='chip'+(selectedTagsSet.has(tag)?' on':''); b.textContent=tag; b.addEventListener('click',()=>{ if(selectedTagsSet.has(tag)) selectedTagsSet.delete(tag); else selectedTagsSet.add(tag); b.classList.toggle('on');}); wrap.appendChild(b); }); }
+    $('#addTagChoice').addEventListener('click',()=>{ const input=$('#tagInput'); const raw=input.value.trim(); if(!raw) return; const parts=parseTags(raw); const choices=loadTagChoices(); let changed=false; parts.forEach(p=>{ if(!choices.includes(p)){ choices.push(p); changed=true; } selectedTagsSet.add(p); }); if(changed) saveTagChoices(choices); input.value=''; renderTagChips(); refreshTagFilter(); });
+    $('#tagInput').addEventListener('keydown',(e)=>{ if(e.key==='Enter'){ e.preventDefault(); $('#addTagChoice').click(); }});
 
     // Meeting dialog logic
     let meetingTargetId=null; let selectedActs=new Set();
@@ -411,39 +504,78 @@
     $('#actInput').addEventListener('keydown',(e)=>{ if(e.key==='Enter'){ e.preventDefault(); $('#addAct').click(); }});
 
     $('#meetForm').addEventListener('submit',(e)=>{ e.preventDefault(); const fd=new FormData(e.target); const date=fd.get('date'); const note=fd.get('note')||''; if(!date) return; const list=(load()||[]); const idx=list.findIndex(x=>x.id===meetingTargetId); if(idx>-1){ list[idx].meetings=list[idx].meetings||[]; // store raw YYYY-MM-DD to avoid tz issues
-      list[idx].meetings.push({ date, activities:Array.from(selectedActs), note }); save(list);} $('#meetDlg').close(); render(); buildCalendarUI(); });
+      list[idx].meetings.push({ date, activities:Array.from(selectedActs), note }); save(list);} $('#meetDlg').close(); render(); buildCalendarUI(); buildListUI(); });
 
     // --- Calendar helpers ---
     function eventsForMonth(year,month){ const list=(load()||[]); const showBD=$('#toggleBirthdays')?.checked ?? true; const showMT=$('#toggleMeetings')?.checked ?? true; const arr=[]; for(const f of list){ if(showBD && f.birthday){ const b=parseYMD(f.birthday); if(b && b.getMonth()===month){ arr.push({type:'bd', date:b.getDate(), label:`🎂 ${f.name}`, friendId:f.id}) }} if(showMT){ const allMeet=[...(f.meetings||[])]; if(f.lastMetDate) allMeet.push({date:f.lastMetDate, note:'(last met)'}); allMeet.forEach(m=>{ if(m.date){ const d=parseYMD(m.date); if(d && d.getFullYear()===year && d.getMonth()===month){ const acts=Array.isArray(m.activities)&&m.activities.length? ` — ${m.activities.join(', ')}`:''; const note=m.note? ` — ${m.note}`:''; arr.push({type:'mt', date:d.getDate(), label:`🤝 ${f.name}${acts}${note}`, friendId:f.id}) }}}) } } return arr; }
 
-    function buildCalendarUI(){ const cal=$('#calGrid'); if(!cal) return; cal.innerHTML=''; const mp=$('#monthPicker'); const [y,m]=(mp.value? mp.value: yymmLocal(new Date())).split('-').map(Number); const year=y||now().getFullYear(); const month=(m? m-1: now().getMonth()); const first=new Date(year,month,1); const startOffset=first.getDay(); const startDate=new Date(year,month,1-startOffset); for(let i=0;i<42;i++){ const d=new Date(startDate); d.setDate(startDate.getDate()+i); const inMonth=d.getMonth()===month; const cell=document.createElement('div'); cell.className='day'+(inMonth?'':' muted'); const num=document.createElement('div'); num.className='num'; num.textContent=d.getDate(); cell.appendChild(num); if(inMonth){ const todays=eventsForMonth(year,month).filter(ev=>ev.date===d.getDate()); todays.forEach(ev=>{ const p=document.createElement('div'); p.className='ev '+(ev.type==='bd'?'bd':'mt'); p.textContent=ev.label; cell.appendChild(p) }) } cal.appendChild(cell); } }
+    function buildCalendarUI(){ const cal=$('#calGrid'); if(!cal) return; cal.innerHTML=''; const mp=$('#monthPicker'); const [y,m]=(mp.value? mp.value: yymmLocal(new Date())).split('-').map(Number); const year=y||now().getFullYear(); const month=(m? m-1: now().getMonth()); const first=new Date(year,month,1); const startOffset=first.getDay(); const startDate=new Date(year,month,1-startOffset); const events=eventsForMonth(year,month); for(let i=0;i<42;i++){ const d=new Date(startDate); d.setDate(startDate.getDate()+i); const inMonth=d.getMonth()===month; const cell=document.createElement('div'); cell.className='day'+(inMonth?'':' muted'); const num=document.createElement('div'); num.className='num'; num.textContent=d.getDate(); cell.appendChild(num); if(inMonth){ const todays=events.filter(ev=>ev.date===d.getDate()); todays.forEach(ev=>{ const p=document.createElement('div'); p.className='ev '+(ev.type==='bd'?'bd':'mt'); p.textContent=ev.label; cell.appendChild(p) }) } cal.appendChild(cell); } }
+
+    // ---- List view ----
+    function buildListUI(){
+      const tbody = $('#listTable tbody'); if(!tbody) return; tbody.innerHTML='';
+      const list = (load()||[]);
+      const q = ($('#listSearch').value||'').toLowerCase();
+      const tagFilter=$('#filterTag').value;
+      const rows = list
+        .filter(f => (tagFilter==='__all' || (f.tags||[]).includes(tagFilter)))
+        .filter(f => !q || (f.name||'').toLowerCase().includes(q))
+        .map(f=>{
+          const age = ageFromBirthday(f.birthday) ?? 0;
+          const kStart = parseYMD(f.metDate); const months = kStart? ((now().getFullYear()-kStart.getFullYear())*12 + (now().getMonth()-kStart.getMonth()) - (now().getDate()<kStart.getDate()?1:0)) : 0;
+          const years = Math.max(0, months/12);
+          return { name:f.name||'', age, years };
+        })
+        .sort((a,b)=> a.name.localeCompare(b.name));
+      const maxYears = Math.max(1, ...rows.map(r=>r.years));
+      rows.forEach(r=>{
+        const tr=document.createElement('tr');
+        const td1=document.createElement('td'); td1.textContent=r.name; tr.appendChild(td1);
+        const td2=document.createElement('td'); td2.textContent = r.age? String(r.age) : '—'; tr.appendChild(td2);
+        const td3=document.createElement('td'); const bar=document.createElement('div'); bar.className='bar'; const fill=document.createElement('span'); fill.style.width = `${(r.years/maxYears)*100}%`; bar.appendChild(fill); const label=document.createElement('div'); label.style.fontSize='12px'; label.style.opacity='.8'; label.style.marginTop='6px'; label.textContent = r.years? r.years.toFixed(1)+' yrs' : '—'; td3.appendChild(bar); td3.appendChild(label); tr.appendChild(td3);
+        tbody.appendChild(tr);
+      });
+      // Localize table heads
+      $('#thName').textContent = i18n[curLang].name || 'Name';
+      $('#thAge').textContent = i18n[curLang].age || 'Age';
+      $('#thKnown').textContent = (i18n[curLang].known || 'Known') + ' (years)';
+    }
 
     // Tabs
-    function showPage(which){ $('#page-cards').style.display=which==='cards'? 'block':'none'; $('#page-calendar').style.display=which==='calendar'? 'block':'none'; $('#tabCards').className=which==='cards'? 'primary':'ghost'; $('#tabCalendar').className=which==='calendar'? 'primary':'ghost'; if(which==='calendar') buildCalendarUI(); }
+    function showPage(which){ $('#page-cards').style.display=which==='cards'? 'block':'none'; $('#page-calendar').style.display=which==='calendar'? 'block':'none'; $('#page-list').style.display=which==='list'? 'block':'none'; $('#tabCards').className=which==='cards'? 'primary':'ghost'; $('#tabCalendar').className=which==='calendar'? 'primary':'ghost'; $('#tabList').className=which==='list'? 'primary':'ghost'; if(which==='calendar') buildCalendarUI(); if(which==='list') buildListUI(); }
     $('#tabCards').addEventListener('click',()=> showPage('cards'));
     $('#tabCalendar').addEventListener('click',()=> showPage('calendar'));
+    $('#tabList').addEventListener('click',()=> showPage('list'));
 
     // Calendar controls
     const mp=$('#monthPicker'); mp.value=yymmLocal(new Date()); mp.addEventListener('change', buildCalendarUI); $('#toggleBirthdays').addEventListener('change', buildCalendarUI); $('#toggleMeetings').addEventListener('change', buildCalendarUI);
 
     // Add/Edit dialog events
     $('#addBtn').addEventListener('click',()=>openDialog());
-    $('#applySort').addEventListener('click', render); $('#sort').addEventListener('change', render);
+    $('#applySort').addEventListener('click', render); $('#sort').addEventListener('change', render); $('#filterTag').addEventListener('change', ()=>{ render(); buildListUI(); });
     $('#closeDlg').addEventListener('click',()=> $('#dlg').close());
     $('#resetForm').addEventListener('click',()=> $('#f').reset());
 
-    $('#f').addEventListener('submit',(e)=>{
+    // Photo preview
+    $('#photoInput').addEventListener('change', (e)=>{ const f=e.target.files?.[0]; if(!f) return; readAsDataURL(f).then(src=> $('#avatarPreview').src=src ); });
+
+    // Save friend
+    $('#f').addEventListener('submit', async (e)=>{
       e.preventDefault(); const fd=new FormData(e.target); const data=Object.fromEntries(fd.entries());
       // store raw YYYY-MM-DD strings (no timezone conversion)
       data.birthday = data.birthday || ''; data.metDate = data.metDate || ''; data.lastMetDate = data.lastMetDate || '';
+      data.tags = Array.from(selectedTagsSet);
+      const file = $('#photoInput').files?.[0];
+      if(file){ try{ data.avatar = await readAsDataURL(file); }catch{} }
       const list=(load()||[]);
-      if(e.target.dataset.id){ const idx=list.findIndex(x=>x.id===e.target.dataset.id); if(idx>-1) list[idx]={...list[idx], ...data}; }
+      if(e.target.dataset.id){ const idx=list.findIndex(x=>x.id===e.target.dataset.id); if(idx>-1){ const keepAvatar=list[idx].avatar; list[idx]={...list[idx], ...data, avatar: data.avatar || keepAvatar}; } }
       else { const id=(crypto&&crypto.randomUUID)? crypto.randomUUID(): (Date.now().toString(36)+Math.random().toString(36).slice(2)); list.push({ id, createdAt:Date.now(), meetings:[], ...data }); }
-      save(list); $('#dlg').close(); render(); buildCalendarUI();
+      save(list); $('#dlg').close(); render(); buildCalendarUI(); buildListUI(); refreshTagFilter();
     });
 
     // Lang select
     $('#lang').addEventListener('change', (e)=> setLang(e.target.value));
+    $('#listSearch').addEventListener('input', buildListUI);
 
     // First paint
     renderStaticUI();
